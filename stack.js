@@ -26,7 +26,7 @@ function Stack() {
         var current = top;
         if (top.next === null) {
             top = null;
-            return current.data;
+            return {'popped':current.data};
         }
         top = top.next;
         current.next = null;
