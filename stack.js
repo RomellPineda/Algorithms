@@ -21,15 +21,18 @@ function Stack() {
 
     this.pop = function () {
         if (top === null) {
+            // return null;
             return 'Go home, you drunk!';
         }
         var current = top;
         if (top.next === null) {
             top = null;
+            // return current.data;
             return {'popped':current.data};
         }
         top = top.next;
         current.next = null;
+        // return current.data;
         return {'popped':current.data};
     }
 

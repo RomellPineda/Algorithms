@@ -24,28 +24,28 @@ function SLList() {
 
     this.pop = function () {
         if (head === null) {
-            return 'Go home, you drunk!';
             // return null;
+            return 'Go home, you drunk!';
         }
         var current = head;
         if (current.next === null) {
             head = null;
-            return { 'popped': current.data };
             // return current.data;
+            return { 'popped': current.data };
         }
         while (current.next.next) {
             current = current.next;
         }
         var gotcha = current.next;
         current.next = null;
-        return { 'popped': gotcha.data };
         // return gotcha.data;
+        return { 'popped': gotcha.data };
     }
 
     this.show = function () {
         if (head === null) {
-            return 'sllist empty!';
             // return null;
+            return 'sllist empty!';
         }
         var sllist = 'h';
         var current = head;
@@ -72,6 +72,26 @@ function SLList() {
         } else {
             return false;
         }
+    }
+
+    this.isPalindrome = function () {
+        if (head === null) {
+            return null;
+        }
+        var staq = new Stack();
+        var runner = head;
+        var walker = head;
+        while (runner) {
+            staq.push(runner.data);
+            runner = runner.next;
+        }
+        while (walker) {
+            if (walker.data != staq.pop()) {
+                return 'nope not a palindrome';
+            }
+            walker = walker.next;
+        }
+        return 'ya looks like a palindrome to me';
     }
 }
 // verified!
