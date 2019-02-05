@@ -75,3 +75,16 @@ function maxChar(str) {
 function reverseInt(n) {
     return parseInt(n.toString().split('').reverse().join('')) * Math.sign(n);
 }
+
+// Capitalize
+
+
+function capitalize(str) {
+    const phrase = [];
+
+    for (let word of str.split(' ')) {
+        phrase.push(word[0].toUpperCase() + word.slice(1));
+    }
+
+    return phrase.join(' ');
+}
