@@ -76,8 +76,18 @@ function reverseInt(n) {
     return parseInt(n.toString().split('').reverse().join('')) * Math.sign(n);
 }
 
-// Capitalize
+// Reversestring
 
+function reverse(str) {
+    var deconst = str.split('');
+    var res = '';
+    for (var i = deconst.length - 1; i > -1; i--) {
+        res = res.concat(deconst[i]);
+    }
+    return res;
+}
+
+// Capitalize
 
 function capitalize(str) {
     const phrase = [];
@@ -87,4 +97,39 @@ function capitalize(str) {
     }
 
     return phrase.join(' ');
+}
+
+// Steps
+// note: nested for
+
+function steps(n) {
+    for (let row = 0; row < n; row++) {
+        let level = '';
+        for (let column = 0; column < n; column++) {
+            if (column <= row) {
+                level += '#';
+            } else {
+                level += ' ';
+            }
+        }
+        console.log(level);
+    }
+}
+
+// Steps recursion
+
+function steps(n, row = 0, stair = '') {
+    if (n === row) {
+        return;
+    }
+    if (n === stair.length) {
+        console.log(stair);
+        return steps(n, row + 1);
+    }
+    if (stair.length <= row) {
+        stair += '#';
+    } else {
+        stair += ' ';
+    }
+    steps(n, row, stair);
 }
