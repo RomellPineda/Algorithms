@@ -34,14 +34,11 @@ Tree.prototype.contains = function (n) {
     if (n < Number.POSITIVE_INFINITY) {
         if (n === this.data) {
             return true;
+        } else if (n < this.data) {
+            console.log('I will look to the left');
         } else {
-            if (n < this.data) {
-                this.left.contains(n);
-            } else {
-                this.right.contains(n);
-            }
+            console.log('I will look to the right');
         }
-        return false;
     } else {
         return 'this data structure only contains numbers';
     }
