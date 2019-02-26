@@ -172,7 +172,6 @@ class Node {
 
 // Validate BST
 
-
 function validate(node, min = null, max = null) {
     if (max !== null && node.data > max) {
         return false;
@@ -192,3 +191,17 @@ function validate(node, min = null, max = null) {
 
     return true;
 }
+
+// Hashmap awesome
+
+let str = '100 + 100';
+
+let dir = {
+  '+' : function(a, b) {return a + b},
+  '-' : function(a, b) {return a - b},
+  '*' : function(a, b) {return a * b},
+  '/' : function(a, b) {return a / b}
+}
+
+let proc = str.split(' ');
+dir[proc[1]](parseInt(proc[0]), parseInt(proc[2]));
