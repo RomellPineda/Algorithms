@@ -1,20 +1,24 @@
 // SLList Maker
 
-function SLList() {
-    var head = null;
-    console.log('sllist up!');
-
-    var Node = function (data) {
+class Node {
+    constructor(data, next = null) {
         this.data = data;
-        this.next = null;
+        this.next = next;
+    }
+}
+
+class SLList {
+    constructor() {
+        this.head = null;
+        console.log('sllist up!');
     }
 
-    this.push = function (data) {
+    push(data) {
         var fresh = new Node(data);
-        if (head === null) {
-            head = fresh;
+        if (this.head === null) {
+            this.head = fresh;
         } else {
-            var current = head;
+            var current = this.head;
             while (current.next) {
                 current = current.next;
             }
@@ -22,14 +26,14 @@ function SLList() {
         }
     }
 
-    this.pop = function () {
-        if (head === null) {
+    pop() {
+        if (this.head === null) {
             // return null;
             return 'Go home, you drunk!';
         }
-        var current = head;
+        var current = this.head;
         if (current.next === null) {
-            head = null;
+            this.head = null;
             // return current.data;
             return { 'popped': current.data };
         }
@@ -42,13 +46,13 @@ function SLList() {
         return { 'popped': gotcha.data };
     }
 
-    this.show = function () {
-        if (head === null) {
+    show() {
+        if (this.head === null) {
             // return null;
             return 'sllist empty!';
         }
         var sllist = 'h';
-        var current = head;
+        var current = this.head;
         while (current) {
             sllist = sllist.concat('-', current.data);
             current = current.next;
@@ -56,31 +60,31 @@ function SLList() {
         return sllist;
     }
 
-    this.addFront = function (data) {
+    addFront(data) {
         var fresh = new Node(data);
-        if (head === null) {
-            head = fresh;
+        if (this.head === null) {
+            this.head = fresh;
         } else {
-            fresh.next = head;
-            head = fresh;
+            fresh.next = this.head;
+            this.head = fresh;
         }
     }
 
-    this.isEmpty = function () {
-        if (head === null) {
+    isEmpty() {
+        if (this.head === null) {
             return true;
         } else {
             return false;
         }
     }
 
-    this.isPalindrome = function () {
-        if (head === null) {
+    isPalindrome() {
+        if (this.head === null) {
             return null;
         }
         var staq = new Stack();
-        var runner = head;
-        var walker = head;
+        var runner = this.head;
+        var walker = this.head;
         while (runner) {
             staq.push(runner.data);
             runner = runner.next;

@@ -1,13 +1,13 @@
 // Predicting output
 
-function a(x,y){
-  return 5;
+function a(x, y) {
+    return 5;
 }
-console.log(a(5,5))
+console.log(a(5, 5));
 // 5
 
 
-function a(x,y){
+function a(x, y) {
     z = []
     z.push(x);
     z.push(y);
@@ -15,74 +15,74 @@ function a(x,y){
     console.log(z);
     return z;
 }
-b = a(2,2)
+b = a(2, 2)
 console.log(b);
-console.log(a(6,8));
+console.log(a(6, 8));
 // 2,2,5; 6,8,5
 
-function a(x){
+function a(x) {
     z = [];
     z.push(x);
     z.pop();
     z.push(x);
     z.push(x);
     return z;
- }
- y = a(2);
- y.push(5);
- console.log(y);
+}
+y = a(2);
+y.push(5);
+console.log(y);
 // 2,2,5
 
-function a(x){
-    if(x[0] <x [1]) {
-       return true;
+function a(x) {
+    if (x[0] < x[1]) {
+        return true;
     }
     else {
-       return false;
+        return false;
     }
- }
- b = a([2,3,4,5])
- console.log(b);
+}
+b = a([2, 3, 4, 5]);
+console.log(b);
 // true
 
-function a(x){
-    for(var i=0; i<x.length; i++){
-      if(x[i] > 0){
-           x[i] = “Coding”
+function a(x) {
+    for (var i = 0; i < x.length; i++) {
+        if (x[i] > 0) {
+            x[i] = 'Coding';
         }
     }
 }
-console.log(a([1,2,3,4]));
+console.log(a([1, 2, 3, 4]));
 // [coding, coding, coding, coding]
 
-function a(x){
-    for(var i=0; i<x.length; i++){
-      if(x[i] > 5){
-           x[i] = “Coding”
+function a(x) {
+    for (var i = 0; i < x.length; i++) {
+        if (x[i] > 5) {
+            x[i] = 'Coding';
         }
-      else if(x[i] < 0){
-           x[i] = “Dojo”
+        else if (x[i] < 0) {
+            x[i] = 'Dojo';
         }
     }
 }
-console.log(a([5,7,-1,4]));
+console.log(a([5, 7, -1, 4]));
 // [5, coding, dojo, 4]
 
-function a(x){
-    if(x[0] > x[1]) {
-     return x[1];
+function a(x) {
+    if (x[0] > x[1]) {
+        return x[1];
     }
     return 10;
 }
-b = a([5,10])
+b = a([5, 10])
 console.log(b);
 // 10
 
-function sum(x){
+function sum(x) {
     sum = 0;
-    for(var i=0; i<x.length; i++){
-       sum = sum + x[i];
-       console.log(sum);
+    for (var i = 0; i < x.length; i++) {
+        sum = sum + x[i];
+        console.log(sum);
     }
     return sum;
 }
@@ -93,31 +93,31 @@ function sum(x){
 
 
 // Analyze an array’s values and return the average of its values.
-function printAverage(x){
+function printAverage(x) {
     sum = 0;
     // your code here
-    for(var i = 0; i < x.length; i++){
+    for (var i = 0; i < x.length; i++) {
         sum = sum + x[i];
     }
-    return sum/x.length;
+    return sum / x.length;
 }
 
 // Create an array with all the odd integers between 1 and 255 (inclusive)
-functioncopy returnOddArray(){
+function returnOddArray() {
     // your code here
     arr = [];
-    for(var i = 1; i <= 255; i++){
-        if(i % 2 === 1){
+    for (var i = 1; i <= 255; i++) {
+        if (i % 2 === 1) {
             arr.push(i);
         }
     }
 }
 
 // Square each value in a given array, returning that same array with changed values.
-functioncopy squareValue(x){
+function squareValue(x) {
     // your code here
     x = [];
-    for(var i = 0; i < arr.length; i++){
+    for (var i = 0; i < arr.length; i++) {
         arr[i] = arr[i] * arr[i];
         x.push(arr[i]);
     }
