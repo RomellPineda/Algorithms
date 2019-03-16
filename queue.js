@@ -1,47 +1,51 @@
 // Queue Maker
 
-function Queue() {
-    var head = null;
-    var tail = null;
-    console.log('Queue up!');
-
-    var Node = function (data) {
+class Node {
+    constructor(data, next = null) {
         this.data = data;
-        this.next = null;
+        this.next = next;
+    }
+}
+
+class Queue {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        console.log('Queue up!');
     }
 
-    this.queue = function (data) {
+    queue(data) {
         var fresh = new Node(data);
-        if (head === null && tail === null) {
-            head = fresh;
-            tail = fresh;
+        if (this.head === null && this.tail === null) {
+            this.head = fresh;
+            this.tail = fresh;
         } else {
-            tail.next = fresh;
-            tail = tail.next;
+            this.tail.next = fresh;
+            this.tail = this.tail.next;
         }
     }
 
-    this.dequeue = function () {
-        if (head === null) {
+    dequeue() {
+        if (this.head === null) {
             return 'Go home, you drunk!';
         }
-        var current = head;
+        var current = this.head;
         if (current.next === null) {
-            head = null;
-            tail = null;
-            return {'dequeued':current.data};
+            this.head = null;
+            this.tail = null;
+            return { 'dequeued': current.data };
         }
-        head = head.next;
+        this.head = this.head.next;
         current.next = null;
-        return {'dequeued':current.data};
+        return { 'dequeued': current.data };
     }
 
-    this.show = function () {
-        if (head === null && tail === null) {
+    show() {
+        if (this.head === null && this.tail === null) {
             return 'queue empty!';
         }
         var q = 'h';
-        var current = head;
+        var current = this.head;
         while (current) {
             q = q.concat('-', current.data);
             current = current.next;

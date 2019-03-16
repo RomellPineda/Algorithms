@@ -1,47 +1,51 @@
 // Staque Maker
 
-function Stack() {
-    var top = null;
-    console.log('Stacked!');
-
-    var Node = function (data) {
+class Node {
+    constructor(data, next = null) {
         this.data = data;
-        this.next = null;
+        this.next = next;
+    }
+}
+
+class Stack {
+    constructor() {
+        this.top = null;
+        console.log('Stacked!');
     }
 
-    this.push = function (data) {
+    push(data) {
         var fresh = new Node(data);
-        if (top === null) {
-            top = fresh;
+        if (this.top === null) {
+            this.top = fresh;
         } else {
-            fresh.next = top;
-            top = fresh;
+            fresh.next = this.top;
+            this.top = fresh;
         }
     }
 
-    this.pop = function () {
-        if (top === null) {
+    pop() {
+        if (this.top === null) {
             // return null;
             return 'Go home, you drunk!';
         }
-        var current = top;
-        if (top.next === null) {
-            top = null;
+        var current = this.top;
+        if (this.top.next === null) {
+            this.top = null;
             // return current.data;
-            return {'popped':current.data};
+            return { 'popped': current.data };
         }
-        top = top.next;
+        this.top = this.top.next;
         current.next = null;
         // return current.data;
-        return {'popped':current.data};
+        return { 'popped': current.data };
     }
 
-    this.show = function () {
-        if (top === null) {
+    show() {
+        if (this.top === null) {
             return 'stack empty!';
         }
         var staque = 'S';
-        var current = top;
+        var current = this.top;
         while (current) {
             staque = staque.concat('[', current.data, ']');
             current = current.next;
